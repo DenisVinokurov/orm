@@ -2,7 +2,7 @@
 
 namespace LaravelDoctrine\ORM\Configuration\Connections;
 
-use Doctrine\DBAL\Connections\MasterSlaveConnection as MasterSlaveDoctrineWrapper;
+use Doctrine\DBAL\Connections\PrimaryReadReplicaConnection;
 use Illuminate\Contracts\Config\Repository;
 
 /**
@@ -41,7 +41,7 @@ class MasterSlaveConnection extends Connection
         $driver = $this->resolvedBaseSettings['driver'];
 
         $resolvedSettings = [
-            'wrapperClass' => $settings['wrapperClass'] ?? MasterSlaveDoctrineWrapper::class,
+            'wrapperClass' => $settings['wrapperClass'] ?? PrimaryReadReplicaConnection::class,
             'driver'       => $driver,
             'master'       => $this->getConnectionData(isset($settings['write']) ? $settings['write'] : [], $driver),
             'slaves'       => $this->getSlavesConfig($settings['read'], $driver),

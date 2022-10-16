@@ -1,6 +1,6 @@
 <?php
 
-use Doctrine\DBAL\Connections\MasterSlaveConnection as MasterSlaveDoctrineWrapper;
+use Doctrine\DBAL\Connections\PrimaryReadReplicaConnection;
 use Illuminate\Contracts\Config\Repository;
 use LaravelDoctrine\ORM\Configuration\Connections\MasterSlaveConnection;
 use Mockery as m;
@@ -105,7 +105,7 @@ class MasterSlaveConnectionTest extends TestCase
     private function getExpectedConfig()
     {
         return [
-            'wrapperClass'  => MasterSlaveDoctrineWrapper::class,
+            'wrapperClass'  => PrimaryReadReplicaConnection::class,
             'driver'        => 'pdo_mysql',
             'serverVersion' => '5.8',
             'slaves'        => [
@@ -189,7 +189,7 @@ class MasterSlaveConnectionTest extends TestCase
     private function getNodesExpectedConfig()
     {
         return [
-            'wrapperClass' => MasterSlaveDoctrineWrapper::class,
+            'wrapperClass' => PrimaryReadReplicaConnection::class,
             'driver'       => 'pdo_mysql',
             'slaves'       => [
                 [
@@ -268,7 +268,7 @@ class MasterSlaveConnectionTest extends TestCase
     private function getSqliteExpectedConfig()
     {
         return [
-            'wrapperClass' => MasterSlaveDoctrineWrapper::class,
+            'wrapperClass' => PrimaryReadReplicaConnection::class,
             'driver'       => 'pdo_sqlite',
             'slaves'       => [
                 [
