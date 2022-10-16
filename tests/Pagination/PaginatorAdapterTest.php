@@ -2,6 +2,7 @@
 
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
+use Doctrine\DBAL\Result;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Configuration;
 use Doctrine\ORM\EntityManagerInterface;
@@ -80,6 +81,7 @@ class PaginatorAdapterTest extends TestCase
         $connection = \Mockery::mock(Connection::class);
         $platform   = \Mockery::mock(AbstractPlatform::class);
         $hydrator   = \Mockery::mock(AbstractHydrator::class);
+        $result = \Mockery::mock(Result::class);
 
         $config->shouldReceive('getDefaultQueryHints')->andReturn([]);
         $config->shouldReceive('isSecondLevelCacheEnabled')->andReturn(false);
@@ -120,7 +122,7 @@ class PaginatorAdapterTest extends TestCase
         $metadata->shouldReceive('getTypeOfField')->andReturn(Types::INTEGER);
 
         $connection->shouldReceive('getDatabasePlatform')->andReturn($platform);
-        $connection->shouldReceive('executeQuery')->andReturn([]);
+        $connection->shouldReceive('executeQuery')->andReturn($result);
         $connection->shouldReceive('getParams')->andReturn([]);
 
         $platform->shouldReceive('appendLockHint')->andReturnUsing(function ($a) {

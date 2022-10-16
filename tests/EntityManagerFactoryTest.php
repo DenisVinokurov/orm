@@ -1001,6 +1001,7 @@ class EntityManagerFactoryTest extends TestCase
         $this->configuration->shouldReceive('setMetadataCacheImpl')->once();
         $this->configuration->shouldReceive('setQueryCacheImpl')->once();
         $this->configuration->shouldReceive('setResultCacheImpl')->once();
+        $this->configuration->shouldReceive('getMiddlewares')->once();
 
         $this->configuration->shouldReceive('getMetadataCache')->zeroOrMoreTimes();
 
