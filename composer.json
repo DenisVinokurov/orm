@@ -19,7 +19,7 @@
         "php": "^8.0",
         "doctrine/annotations": "^1.13",
         "doctrine/cache": "^1",
-        "doctrine/persistence": "^1.3.5|^2.0",
+        "doctrine/persistence": "^3.0",
         "illuminate/auth": "^9.0",
         "illuminate/console": "^9.0",
         "illuminate/container": "^9.0",
@@ -29,8 +29,8 @@
         "illuminate/support": "^9.0",
         "illuminate/validation": "^9.0",
         "illuminate/view": "^9.0",
-        "symfony/serializer": "^5.0|^6.0",
-        "symfony/yaml": "^5.0|^6.0",
+        "symfony/serializer": "^6.0",
+        "symfony/yaml": "^6.0",
         "doctrine/orm": "^2.13",
         "doctrine/dbal": "^3.4"
     },
@@ -64,6 +64,9 @@
         "laravel-doctrine/extensions": "to add Behavioral and Query/Type Extensions for Laravel Doctrine (~1.0)",
         "laravel-doctrine/migrations": "to add support for migrations in Laravel Doctrine (~1.0)",
         "yajra/laravel-oci8": "Support for Laravel native queue and session database drivers in Oracle (~2.0)."
+    },
+    "scripts": {
+        "test": "phpunit"
     },
     "extra": {
         "laravel": {
