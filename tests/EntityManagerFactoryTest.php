@@ -983,6 +983,8 @@ class EntityManagerFactoryTest extends TestCase
     {
         $this->configuration = m::mock(Configuration::class);
         $this->configuration->shouldReceive('setSQLLogger');
+        $this->configuration->shouldReceive('isLazyGhostObjectEnabled')
+            ->andReturn(false);
 
         $this->configuration->shouldReceive('getMetadataDriverImpl')
                             ->andReturn($this->mappingDriver);
