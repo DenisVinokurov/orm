@@ -16,6 +16,7 @@ class SqlsrvConnection extends Connection
         return [
             'driver'              => 'pdo_sqlsrv',
             'driverClass'         => Arr::get($settings, 'driverClass'),
+            'driverOptions'       => Arr::get($settings, 'driverOptions'),
             'host'                => Arr::get($settings, 'host'),
             'dbname'              => Arr::get($settings, 'database'),
             'user'                => Arr::get($settings, 'username'),
