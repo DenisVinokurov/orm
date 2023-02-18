@@ -62,7 +62,7 @@ class DoctrineDataSource extends DataSource
             $queries[] = [
                 'query'      => $this->formatter->format($this->connection->getDatabasePlatform(), $query['sql'], $query['params']),
                 'duration'   => $query['executionMS'] * 1000,
-                'connection' => $this->connection->getDriver()->getName()
+                'connection' => $this->connection->getParams()['driver'] ?? null,
             ];
         }
 
